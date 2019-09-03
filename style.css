@@ -1,0 +1,65 @@
+body {
+    background-color: #010165;
+    margin: 0px;
+}
+/* logo */
+.header {
+    background-color: #00ffff;
+    text-align: center
+}
+
+/* game rule's */
+.title-row {
+    margin: 42px 0 21px;
+    text-align: center;
+    
+}
+.ru-title {
+    display: inline;
+    font-family: 'Work Sans';
+    font-size: 18px;
+    color: #00ffff;
+}
+
+/* game rule's table */
+.ru-table {
+    margin: 0 auto;
+    width: 400px;
+}
+
+.ru-number {
+    padding-right: 25px;
+    font-family: 'Work Sans';
+    font-size: 36px;
+    color: #00ffff;
+}
+.ru-text {
+    padding: 10px;
+    font-family: 'Work Sans';
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* defualt door */
+.door-row {
+    text-align: center;
+}
+
+.door-frame {
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* start button */
+.start-row {
+    margin: auto;
+    width: 120px;
+    height: 43px;
+    font-family: 'Work Sans';
+    background-color: #eb6536;
+    padding-top: 18px;
+    text-align: center;
+    color: #010165;
+    margin-bottom: 21px;
+    cursor: pointer;
+}
