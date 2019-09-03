@@ -16,3 +16,4 @@ doorImage2.onclick = () =>{
 doorImage3.onclick = () =>{
     doorImage3.src = spaceDoor;
 }
+// TODO: create through a task"Let's Make This ACT Like a Game! - Part I"
