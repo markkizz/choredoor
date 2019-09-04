@@ -39,27 +39,22 @@ var playDoor = (doorImg) => {
     for (let i = 0; i < doorImgChange.length; i++) {
         if (doorImg === doorImgChange[i]) {
             numClosedDoors -= 1;
-            console.log(numClosedDoors); //d
-            console.log(!foundBot); //d
         }
     }
     //winner
     if (numClosedDoors === 0 && doorImg === botDoor) {
         //yeah! you a winner
         btStart.textContent = "You win! Play again?";
+        roundWin('win');
     }
     //game over when found Bot
     if (numClosedDoors !== 0 && doorImg === botDoor) {
         //sorry game over
         btStart.textContent = "Game over! Play again?";
+        //and we found bot!
         foundBot = true;
     }
 }
-
-//check bot
-// var isBot = (doorimg) =>{
-
-// }
 
 //door event
 doorImage1.onclick = () => {
@@ -103,3 +98,22 @@ const gameReset = () => {
 //excute function
 randomChoreDoorGenerator();
 gameReset();
+
+//win streak collection
+var scoreNum = document.getElementById("score-number");
+var highScore = document.getElementById("high-score-number");
+var roundWin = 0;
+var collectWin = () =>{
+    let i=0;
+    i += roundWin;
+    return i;
+}
+
+btStart.onchange = function(){
+    if(btStart.textContent === "You win! Play again?"){
+        roundWin += 1;
+    }
+}
+scoreNum.textContent = roundWin;
+highScore.textContent = collectWin();
+//TODO: make the winner streak
