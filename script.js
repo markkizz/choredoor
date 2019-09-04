@@ -14,6 +14,19 @@ var openDoor2;
 var openDoor3;
 //start buttom
 var btStart = document.getElementById("start");
+//door will not open when we found bot door
+var currentPlay = true;
+
+
+//check if found bot 
+const isBot = (door) =>{
+    if(door.src === botDoor){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 //check the door if door clicked already
 const isClicked = (door) =>{
@@ -25,13 +38,13 @@ const isClicked = (door) =>{
     }
 }
 
-const playDoor = () =>{
+const playDoor = (door) =>{
     numClosedDoors-- ;
     if(numClosedDoors===0){
         gameOver('win');
     }
-    else {
-
+    else if(isBot(door)) {
+        gameOver('lose');
     }
 }
 
@@ -57,31 +70,35 @@ const randomChoreDoorGenerator = () =>{
 
 //door event
 doorImage1.onclick = () =>{
-    if(!isClicked(doorImage1)) {
+    if(currentPlay && !isClicked(doorImage1)) {
         doorImage1.src = openDoor1;
-        playDoor();
+        playDoor(doorImage1);
     }
     
 }
 doorImage2.onclick = () =>{
-    if(!isClicked(doorImage2)) {
+    if(currentPlay && !isClicked(doorImage2)) {
         doorImage2.src = openDoor2;
-        playDoor();
+        playDoor(doorImage2);
     }
     
 }
 doorImage3.onclick = () =>{
-    if(!isClicked(doorImage3)) {
+    if(currentPlay && !isClicked(doorImage3)) {
         doorImage3.src = openDoor3;
-        playDoor();
+        playDoor(doorImage3);
     }
 
 }
-
+//game over
 const gameOver = (status) =>{
     if(status === 'win') {
         btStart.textContent = "You win! Play again?";
     }
+    else{
+        btStart.textContent = 'Game over! Play again?';
+    }
+    currentPlay = false;
 }
 //excute function
 randomChoreDoorGenerator();
